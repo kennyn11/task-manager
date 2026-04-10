@@ -23,7 +23,7 @@ export default function TaskList({ tasks, onToggle, onDelete }) {
           onToggle={onToggle} 
           onDelete={onDelete}
           />
-       
+        
       ))}
     </ul>
   );

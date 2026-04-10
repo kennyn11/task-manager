@@ -12,10 +12,10 @@
 import TaskCard from './TaskCard';
 export default function TaskList({ tasks, onToggle, onDelete }) {
   if (tasks.length === 0) {
-    return <p className="text-gray-400 p-4">No tasks yet!</p>;
+    return <p className="text-slate-500 p-4">No tasks yet!</p>;
   }
   return (
-    <ul className="divide-y">
+    <ul className="space-y-3">
      {tasks.map((task) => (
         <TaskCard 
           key={task.id} 

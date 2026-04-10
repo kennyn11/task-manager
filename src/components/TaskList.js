@@ -15,7 +15,7 @@ export default function TaskList({ tasks, onToggle, onDelete }) {
     return <p className="text-slate-500 p-4">No tasks yet!</p>;
   }
   return (
-    <ul className="space-y-3">
+    <div className="space-y-3">
      {tasks.map((task) => (
         <TaskCard 
           key={task.id} 
@@ -25,6 +25,6 @@ export default function TaskList({ tasks, onToggle, onDelete }) {
           />
         
       ))}
-    </ul>
+    </div>
   );
 }

@@ -22,13 +22,29 @@ const [tasks, setTasks] = useState(() => {
     { id: 't2', title: 'Write tests', done: false }
   ];
 });
+const [hasMounted, setHasMounted] = useState(false);
 const [filter, setFilter] = useState('all');
 
 // Sync tasks to localStorage whenever they change
 useEffect(() => {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-}, [tasks]);
+    const saved = localStorage.getItem('tasks');
+    if (saved) {
+      setTasks(JSON.parse(saved));
+    } else {
+setTasks([
+        { id: 't1', title: 'Buy milk', done: false },
+        { id: 't2', title: 'Setup project', done: true }
+      ]);
+    }
+    setHasMounted(true);
+  }, []);
 
+  
+  useEffect(() => {
+    if (hasMounted) {
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+  }, [tasks, hasMounted]);
 //Spread old array and add new object
 function handleAddTask(title) { const newTask = { id: crypto.randomUUID(), title, done: false };
     setTasks([...tasks, newTask]);

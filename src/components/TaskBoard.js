@@ -29,7 +29,7 @@ export default function TaskBoard() {
         { id: 't2', title: 'Write tests', done: false }
       ]);
     }
-    setHasMounted(true); // Now it's safe to show the list!
+    setHasMounted(true); 
   }, []);
 
   // Saves to local storage
@@ -58,7 +58,7 @@ export default function TaskBoard() {
     setTasks(tasks.filter((t) => !t.done));
   }
 
-  // --- LOGIC ---
+ 
   const completedCount = tasks.filter((t) => t.done).length;
   const activeCount = tasks.length - completedCount;
 
@@ -76,7 +76,6 @@ export default function TaskBoard() {
     );
   }
 
-  // 5. THE MAIN UI
   return (
     <div className="max-w-lg mx-auto bg-slate-900/40 backdrop-blur-md border border-slate-800 p-6 rounded-3xl shadow-xl">
       <AddTaskForm onAdd={handleAddTask} />
